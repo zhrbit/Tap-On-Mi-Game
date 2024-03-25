@@ -1,7 +1,38 @@
-body{
-	background-color:#000;
+body {
+    background-color: #000;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
 
-#myCanvas{
-	background-color:white;
+.container {
+    text-align: center;
+    position: relative;
+}
+
+.title {
+    color: #fff;
+    font-family: 'Arial', sans-serif;
+}
+
+.start-btn {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-top: 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#myCanvas {
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
 }
