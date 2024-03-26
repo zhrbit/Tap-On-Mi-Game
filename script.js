@@ -121,3 +121,34 @@ function startGame() {
   restart();
   animate();
 }
+
+// Initialize high scores array
+let highScores = [];
+
+function updateHighScores(score) {
+    // Add the new score to the high scores array
+    highScores.push(score);
+    // Sort the high scores in descending order
+    highScores.sort((a, b) => b - a);
+    // Limit the number of high scores to display
+    highScores = highScores.slice(0, 5); // Display top 5 scores
+
+    // Update the high scores list in the HTML
+    let highScoreList = document.getElementById('highScores');
+    highScoreList.innerHTML = '';
+    highScores.forEach((score, index) => {
+        let listItem = document.createElement('li');
+        listItem.textContent = `${index + 1}: ${score}`;
+        highScoreList.appendChild(listItem);
+    });
+}
+
+function gameOver() {
+    mode = 'gameOver';
+    document.getElementById("restartButton").style.display = "block";
+    document.getElementById("restartScreen").style.display = "block";
+    document.getElementById("score").textContent = (current - 1).toString();
+    
+    // Update high scores when the game is over
+    updateHighScores(current - 1);
+}
