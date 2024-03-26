@@ -138,14 +138,13 @@ function updateHighScores(score) {
     highScoreList.innerHTML = '';
     highScores.forEach((score, index) => {
         let listItem = document.createElement('li');
-        listItem.textContent = `${index + 1}: ${score}`;
+        listItem.textContent = `${score}`;
         highScoreList.appendChild(listItem);
     });
 }
 
 function gameOver() {
     mode = 'gameOver';
-    document.getElementById("restartButton").style.display = "block";
     document.getElementById("restartScreen").style.display = "block";
     document.getElementById("score").textContent = (current - 1).toString();
     

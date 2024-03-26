@@ -24,7 +24,7 @@ body {
 }
 
 .start-btn {
-    background-color: #4CAF50;
+    background-color: #00a6ff;
     border: none;
     color: white;
     padding: 10px 20px;
@@ -35,7 +35,7 @@ body {
 }
 
 .start-btn:hover {
-    background-color: #45a049;
+    background-color: #00a6ff;
 }
 
 .container {
@@ -72,7 +72,7 @@ body {
 }
 
 .restart-btn {
-    background-color: #4CAF50;
+    background-color: #00a6ff;
     border: none;
     color: white;
     padding: 10px 20px;
@@ -83,5 +83,5 @@ body {
 }
 
 .restart-btn:hover {
-    background-color: #45a049;
+    background-color: #00a6ff;
 }
