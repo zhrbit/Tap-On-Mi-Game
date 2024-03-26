@@ -87,7 +87,6 @@ function animate() {
 
 function gameOver() {
   mode = 'gameOver';
-  document.getElementById("restartButton").style.display = "block"; // Menampilkan tombol restart saat game over
   document.getElementById("restartScreen").style.display = "block"; // Menampilkan layar restart saat game over
   document.getElementById("score").textContent = (current - 1).toString(); // Menampilkan skor pada layar restart
 }
@@ -101,7 +100,6 @@ function restart() {
   current = 1;
   newBox();
   debris.y = 0;
-  document.getElementById("restartButton").style.display = "none"; // Menyembunyikan tombol restart saat permainan di-restart
   document.getElementById("restartScreen").style.display = "none"; // Menyembunyikan layar restart saat permainan di-restart
 }
 
