@@ -5,16 +5,24 @@ let scrollCounter, cameraY, current, mode, xSpeed;
 let ySpeed = 5;
 let height = 50;
 let boxes = [];
+
+// Atur kotak pertama berada di tengah
+let initialBoxWidth = 200;
+let initialBoxX = (canvas.width - initialBoxWidth) / 2;
 boxes[0] = {
-  x: 300,
+  x: initialBoxX,
   y: 300,
-  width: 200
+  width: initialBoxWidth
 };
 let debris = {
   x: 0,
   width: 0
 };
- 
+
+// Tambahkan variabel untuk mengontrol kecepatan kotak
+let initialXSpeed = 2;
+let speedDecrement = 0.1; // Penurunan kecepatan setiap kali poin bertambah
+
 function newBox() {
   boxes[current] = {
     x: 0,
@@ -22,13 +30,7 @@ function newBox() {
     width: boxes[current - 1].width
   };
 }
- 
-function gameOver() {
-  alert("GAME OVER! Try again");
-  mode = 'gameOver';
-	
-}
- 
+
 function animate() {
   if (mode != 'gameOver') {
     context.clearRect(0, 0, canvas.width, canvas.height);
@@ -67,10 +69,8 @@ function animate() {
           boxes[current].width = boxes[current].width + difference;
           boxes[current].x = boxes[current - 1].x;
         }
-        if (xSpeed > 0)
-          xSpeed++;
-        else
-          xSpeed--;
+        // Kurangi kecepatan setiap kali poin bertambah
+        xSpeed -= speedDecrement;
         current++;
         scrollCounter = height;
         newBox();
@@ -84,27 +84,36 @@ function animate() {
   }
   window.requestAnimationFrame(animate);
 }
- 
+
+function gameOver() {
+  mode = 'gameOver';
+  document.getElementById("restartButton").style.display = "block"; // Menampilkan tombol restart saat game over
+  document.getElementById("restartScreen").style.display = "block"; // Menampilkan layar restart saat game over
+  document.getElementById("score").textContent = (current - 1).toString(); // Menampilkan skor pada layar restart
+}
+
 function restart() {
   boxes.splice(1, boxes.length - 1);
   mode = 'bounce';
   cameraY = 0;
   scrollCounter = 0;
-  xSpeed = 2;
+  xSpeed = initialXSpeed; // Kembalikan kecepatan awal
   current = 1;
   newBox();
   debris.y = 0;
+  document.getElementById("restartButton").style.display = "none"; // Menyembunyikan tombol restart saat permainan di-restart
+  document.getElementById("restartScreen").style.display = "none"; // Menyembunyikan layar restart saat permainan di-restart
 }
- 
+
 canvas.onpointerdown = function() {
-  if (mode == 'gameOver'){
-	restart();
-  }else {
+  if (mode == 'gameOver') {
+    restart();
+  } else {
     if (mode == 'bounce')
       mode = 'fall';
   }
 };
- 
+
 restart();
 animate();
 
