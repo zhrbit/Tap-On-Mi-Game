@@ -7,6 +7,30 @@ body {
     height: 100vh;
 }
 
+.splash {
+    text-align: center;
+    position: relative;
+    color: #fff;
+}
+
+.splash-title {
+    font-family: 'Arial', sans-serif;
+}
+
+.start-btn {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-top: 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
 .container {
     text-align: center;
     position: relative;
@@ -17,7 +41,7 @@ body {
     font-family: 'Arial', sans-serif;
 }
 
-.start-btn {
+.restart-btn {
     background-color: #4CAF50;
     border: none;
     color: white;

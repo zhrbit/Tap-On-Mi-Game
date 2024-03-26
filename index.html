@@ -7,10 +7,14 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
+    <div id="splashScreen" class="splash">
+        <h1 class="splash-title">Welcome to Tap-On Mi Game</h1>
+        <button class="start-btn" onclick="startGame()">Start Game</button>
+    </div>
+    <div id="gameContainer" class="container" style="display: none;">
         <h1 class="title">Tap-On Mi Game</h1>
         <canvas id="myCanvas" width="600" height="400"></canvas>
-        <button class="start-btn" onclick="start()">Start</button>
+        <button class="restart-btn" onclick="restart()">Restart</button>
     </div>
     <script src="script.js"></script>
 </body>

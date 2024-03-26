@@ -107,3 +107,10 @@ canvas.onpointerdown = function() {
  
 restart();
 animate();
+
+function startGame() {
+  document.getElementById("splashScreen").style.display = "none";
+  document.getElementById("gameContainer").style.display = "block";
+  restart();
+  animate();
+}
