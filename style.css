@@ -1,19 +1,24 @@
 body {
     /* Mengatur gambar latar belakang */
-    background-image: url('assets/2.png');
+    background-image: url('assets/1.png');
     /* Untuk mengatur gambar dari kiri atas tanpa pengulangan */
     background-position: left top;
     /* Untuk mengatur agar gambar tidak diulang */
     background-repeat: no-repeat;
-    /* Untuk mengisi area yang tersisa jika gambar tidak cukup */
-    background-size: cover;
     /* Menghapus margin default dari body */
     margin: 0;
     /* Mengatur jenis font yang digunakan untuk seluruh halaman */
     font-family: Arial, sans-serif;
+    /* Menyesuaikan gambar agar sesuai dengan ukuran web */
+    background-size: cover;
 }
 
-
+img {
+    width: 100%; /* Lebar gambar akan mengisi lebar container */
+    height: auto; /* Tinggi gambar akan disesuaikan agar tidak terdistorsi */
+    display: block; /* Mengatur gambar menjadi blok agar margin dan padding bisa diterapkan */
+    margin: 0 auto; /* Posisi gambar di tengah */
+  }
 .game-wrapper {
     display: flex;
     flex-direction: column;
