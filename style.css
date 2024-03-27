@@ -1,6 +1,6 @@
 body {
     /* Mengatur gambar latar belakang */
-    background-image: url('assets/1.png');
+    background-image: url('assets/2.png');
     /* Untuk mengatur gambar dari kiri atas tanpa pengulangan */
     background-position: left top;
     /* Untuk mengatur agar gambar tidak diulang */
@@ -42,6 +42,10 @@ body {
     cursor: pointer;
     border-radius: 5px;
     transition: background-color 0.3s ease;
+    position: absolute;
+    top: 80%; /* Atur jarak dari atas */
+    left: 50%; /* Atur jarak dari kiri */
+    transform: translate(-50%, -50%); /* Untuk memusatkan tombol */
 }
 
 .start-btn:hover {
