@@ -1,8 +1,18 @@
 body {
-    background-color: #f0f0f0;
+    /* Mengatur gambar latar belakang */
+    background-image: url('assets/1.png');
+    /* Untuk mengatur gambar dari kiri atas tanpa pengulangan */
+    background-position: left top;
+    /* Untuk mengatur agar gambar tidak diulang */
+    background-repeat: no-repeat;
+    /* Untuk mengisi area yang tersisa jika gambar tidak cukup */
+    background-size: cover;
+    /* Menghapus margin default dari body */
     margin: 0;
+    /* Mengatur jenis font yang digunakan untuk seluruh halaman */
     font-family: Arial, sans-serif;
 }
+
 
 .game-wrapper {
     display: flex;

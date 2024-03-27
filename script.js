@@ -31,16 +31,24 @@ function newBox() {
   };
 }
 
+
 function animate() {
   if (mode != 'gameOver') {
     context.clearRect(0, 0, canvas.width, canvas.height);
     context.fillText('Score: ' + (current - 1).toString(), 5, 30);
     for (let n = 0; n < boxes.length; n++) {
       let box = boxes[n];
-      context.fillStyle = 'rgb(' + n * 16 + ',' + n * 16 + ',' + n * 16 + ')';
-      context.fillRect(box.x, 600 - box.y + cameraY, box.width, height);
+      // Buat objek gambar baru
+      let image = new Image();
+      // Tentukan path gambar kustom Anda
+      image.src = 'assets/b1.png'; // Ganti dengan path gambar Anda
+      // Gambar gambar di atas kanvas
+      context.drawImage(image, box.x, 600 - box.y + cameraY, box.width, height);
     }
-    context.fillStyle = 'blue';
+   
+  }
+  window.requestAnimationFrame(animate);
+    context.fillStyle = '#3C7FC0';
     context.fillRect(debris.x, 600 - debris.y + cameraY, debris.width, height);
     if (mode == 'bounce') {
       boxes[current].x = boxes[current].x + xSpeed;
@@ -82,14 +90,17 @@ function animate() {
       scrollCounter--;
     }
   }
-  window.requestAnimationFrame(animate);
-}
 
 function gameOver() {
   mode = 'gameOver';
-  document.getElementById("restartScreen").style.display = "block"; // Menampilkan layar restart saat game over
-  document.getElementById("score").textContent = (current - 1).toString(); // Menampilkan skor pada layar restart
+  document.getElementById("restartScreen").style.display = "block";
+  document.getElementById("score").textContent = (current - 1).toString();
+  endTime = new Date(); // Record end time when game ends
+  displayPlayTime(); // Panggil fungsi untuk menampilkan waktu bermain
+  // Update high scores when the game is over
+  updateHighScores(current - 1, endTime - startTime); // Mengirimkan durasi permainan ke fungsi updateHighScores()
 }
+
 
 function restart() {
   boxes.splice(1, boxes.length - 1);
