@@ -98,6 +98,8 @@ function animate() {
         current++;
         scrollCounter = height;
         newBox();
+        // Putar audio saat blok jatuh
+        document.getElementById('fallSound').play();
       }
     }
     debris.y = debris.y - ySpeed;
