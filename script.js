@@ -115,6 +115,7 @@ function gameOver() {
   mode = 'gameOver';
   document.getElementById("restartScreen").style.display = "block";
   document.getElementById("score").textContent = (current - 1).toString();
+  updateAndDisplayHighScores(current - 1); // Update and display high scores
 }
 
 
@@ -148,3 +149,53 @@ function startGame() {
     restart();
     animate();
 }
+
+// Initialize high scores array
+let highScores = [];
+
+function displayHighScores() {
+    // Perbarui tampilan HTML dengan skor tertinggi
+    let highScoreList = document.getElementById('highScores');
+    highScoreList.innerHTML = '';
+    highScores.forEach((item, index) => {
+        let listItem = document.createElement('li');
+        listItem.textContent = `Score: ${item.score}`;
+        highScoreList.appendChild(listItem);
+    });
+}
+
+
+function updateHighScores(score) {
+    // Add the new score and play time to the high scores array
+    highScores.push({score: score});
+    // Sort the high scores by score in descending order
+    highScores.sort((a, b) => b.score - a.score);
+    // Limit the number of high scores to display
+    highScores = highScores.slice(0, 1); // Display top 5 scores
+
+    // Perbarui tampilan skor tertinggi
+    displayHighScores();
+}
+
+// Function to save high scores to local storage
+function saveHighScores() {
+  localStorage.setItem('highScores', JSON.stringify(highScores));
+}
+
+// Function to load high scores from local storage
+function loadHighScores() {
+  let storedScores = localStorage.getItem('highScores');
+  if (storedScores) {
+      highScores = JSON.parse(storedScores);
+  }
+}
+
+// Function to update and display high scores
+function updateAndDisplayHighScores(score) {
+  updateHighScores(score);
+  displayHighScores();
+  saveHighScores();
+}
+
+// Call loadHighScores when the script starts to load any existing high scores
+loadHighScores();
