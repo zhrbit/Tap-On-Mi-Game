@@ -31,6 +31,29 @@ function newBox() {
   };
 }
 
+// Array untuk menyimpan path gambar kustom Anda
+let imagePaths = ['assets/b1.png', 'assets/b2.png', 'assets/b3.png', 'assets/b4.png', 'assets/b5.png', 'assets/b6.png', ]; // Ganti dengan path gambar Anda
+
+// Array untuk menyimpan objek gambar
+let images = [];
+
+// Mengisi array images dengan objek gambar dari path gambar
+for (let i = 0; i < imagePaths.length; i++) {
+  let image = new Image();
+  image.src = imagePaths[i];
+  images.push(image);
+}
+
+// Indeks untuk melacak gambar mana yang akan digambar selanjutnya
+let currentImageIndex = 0;
+
+function drawNextImage(box) {
+  let currentImage = images[currentImageIndex];
+  context.drawImage(currentImage, box.x, 600 - box.y + cameraY, box.width, height);
+  // Pindah ke gambar berikutnya dalam array, lakukan loop jika mencapai akhir array
+  currentImageIndex = (currentImageIndex + 1) % images.length;
+}
+
 
 function animate() {
   if (mode != 'gameOver') {
@@ -38,17 +61,10 @@ function animate() {
     context.fillText('Score: ' + (current - 1).toString(), 5, 30);
     for (let n = 0; n < boxes.length; n++) {
       let box = boxes[n];
-      // Buat objek gambar baru
-      let image = new Image();
-      // Tentukan path gambar kustom Anda
-      image.src = 'assets/b1.png'; // Ganti dengan path gambar Anda
-      // Gambar gambar di atas kanvas
-      context.drawImage(image, box.x, 600 - box.y + cameraY, box.width, height);
+      // Panggil fungsi untuk menggambar gambar selanjutnya dengan parameter box
+      drawNextImage(box);
     }
-   
-  }
-  window.requestAnimationFrame(animate);
-    context.fillStyle = '#3C7FC0';
+    context.fillStyle = '#f2d89b';
     context.fillRect(debris.x, 600 - debris.y + cameraY, debris.width, height);
     if (mode == 'bounce') {
       boxes[current].x = boxes[current].x + xSpeed;
@@ -90,6 +106,8 @@ function animate() {
       scrollCounter--;
     }
   }
+  window.requestAnimationFrame(animate);
+}
 
 function gameOver() {
   mode = 'gameOver';
