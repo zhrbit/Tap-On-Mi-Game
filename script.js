@@ -171,7 +171,7 @@ function updateHighScores(score) {
     // Sort the high scores by score in descending order
     highScores.sort((a, b) => b.score - a.score);
     // Limit the number of high scores to display
-    highScores = highScores.slice(0, 1); // Display top 5 scores
+    highScores = highScores.slice(0, 3); // Display top 5 scores
 
     // Perbarui tampilan skor tertinggi
     displayHighScores();
