@@ -60,6 +60,9 @@ img {
 .container {
     text-align: center;
     background-color: antiquewhite;
+    top: 25%; /* Atur jarak dari atas */
+    left: 26%; /* Atur jarak dari kiri */
+    position: absolute;
 }
 
 .title {

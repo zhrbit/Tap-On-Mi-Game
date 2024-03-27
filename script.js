@@ -115,10 +115,6 @@ function gameOver() {
   mode = 'gameOver';
   document.getElementById("restartScreen").style.display = "block";
   document.getElementById("score").textContent = (current - 1).toString();
-  endTime = new Date(); // Record end time when game ends
-  displayPlayTime(); // Panggil fungsi untuk menampilkan waktu bermain
-  // Update high scores when the game is over
-  updateHighScores(current - 1, endTime - startTime); // Mengirimkan durasi permainan ke fungsi updateHighScores()
 }
 
 
@@ -146,64 +142,9 @@ canvas.onpointerdown = function() {
 restart();
 animate();
 
-let startTime; // Variable to store start time
-let endTime; // Variable to store end time
-
 function startGame() {
-    startTime = new Date(); // Record start time when game starts
     document.getElementById("splashScreen").style.display = "none";
     document.getElementById("gameContainer").style.display = "block";
     restart();
     animate();
-}
-
-
-function displayPlayTime() {
-    let duration = endTime - startTime; // Calculate duration in milliseconds
-    let seconds = Math.floor(duration / 1000);
-    let minutes = Math.floor(seconds / 60);
-    seconds %= 60;
-    document.getElementById("playTime").textContent = `Play Time: ${minutes} minutes ${seconds} seconds`;
-}
-
-
-// Initialize high scores array
-let highScores = [];
-
-
-function updateHighScores(score, playTime) {
-    // Add the new score and play time to the high scores array
-    highScores.push({score: score, playTime: playTime});
-    // Sort the high scores by score in descending order
-    highScores.sort((a, b) => b.score - a.score);
-    // Limit the number of high scores to display
-    highScores = highScores.slice(0, 5); // Display top 5 scores
-
-    // Update the high scores list in the HTML
-    let highScoreList = document.getElementById('highScores');
-    highScoreList.innerHTML = '';
-    highScores.forEach((item, index) => {
-        let listItem = document.createElement('li');
-        listItem.textContent = ` Score: ${item.score}, Play Time: ${formatPlayTime(item.playTime)}`;
-        highScoreList.appendChild(listItem);
-    });
-}
-
-// Function to format play time (in milliseconds) as minutes and seconds
-function formatPlayTime(playTime) {
-    let seconds = Math.floor(playTime / 1000);
-    let minutes = Math.floor(seconds / 60);
-    seconds %= 60;
-    return `${minutes} minutes ${seconds} seconds`;
-}
-
-
-function gameOver() {
-  mode = 'gameOver';
-  document.getElementById("restartScreen").style.display = "block";
-  document.getElementById("score").textContent = (current - 1).toString();
-  endTime = new Date(); // Record end time when game ends
-  displayPlayTime();
-  // Update high scores when the game is over
-  updateHighScores(current - 1);
 }
