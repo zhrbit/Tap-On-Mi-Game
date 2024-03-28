@@ -1,0 +1,215 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100px;
+    padding: 0 5%;
+    position: absolute;
+    width: 100%;
+    z-index: 100;
+}
+header h1 {
+    font-size: 40px;
+    color: white;
+}
+header nav {
+    display: flex;
+    gap: 30px;
+}
+header nav a {
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 600;
+    padding: 8px 16px;
+    border-radius: 99px;
+    transition: 0.3s;
+    color: white;
+}
+header nav a.active {
+    background: #5DA3EB;
+}
+header nav a:hover {
+    background: #3a77bd;
+}
+header nav:hover > a:not(:hover) {
+    background: none;
+}
+
+.home {
+    display: flex;
+    height: 100vh;
+    background: linear-gradient(to top, #5DA3EB 30%, #7fbfff);
+    position: relative;
+    overflow: hidden;
+}
+
+.home img {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    pointer-events: none;
+}
+
+.home .title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 80px;
+    text-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+}
+
+.alur, .chart{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 10%;
+    text-align: center;
+}
+.alur {
+    height: 120vh;
+    background-image: url("assets/7.png"); 
+}
+.chart {
+    height: 120vh;
+    background-image: url("assets/8.png"); 
+  }
+
+
+.gamescenario {
+  max-width: 800px;
+  width: 700px;
+  height: auto;
+    padding: 20px;
+    background-color: transparent;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    text-align: center;
+    justify-content: center;
+}
+.flowchart {
+  max-width: 800px;
+  width: 700px;
+  height: auto;
+    padding: 20px;
+    background-color: transparent;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    text-align: center;
+    justify-content: center;
+}
+
+.gamescenario, .flowchart h1 {
+  font-size: 40px;
+  margin-top: 8px;
+  font-weight: 800;
+  background-color: transparent;
+}
+
+.gamescenario p {
+  font-size: 18px;
+  color: #000000;
+  font-weight: 300;
+  text-align: left;
+}
+.flowchart img{
+    height: 80vh;
+}
+
+footer {
+  background-color: rgb(0, 106, 255);
+  color: #fff;
+  text-align: center;
+  padding: 10px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+.member {
+    /* padding: 150px 0;
+    text-align: center;
+    margin: 100px 10%; */
+    height: 100vh;
+    background-image: url("assets/6.png"); 
+  }
+  .member h2 {
+    font-size: 32px;
+    margin-bottom: 50px;
+    background-position: center;
+    background-color: transparent;
+    font-weight: 800;
+    text-align: center;
+    color: #fff;
+  }   
+  .member-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10%;
+  }
+  .member-item {
+    width: 200px;
+    height: auto;
+    padding: 20px;
+    background-color: transparent;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    text-align: center;
+    justify-content: center;
+  }
+  .member-item:hover {
+    transform: translateY(-5px);
+  }
+  .member-item img {
+    max-width: 100%; 
+    height: 100%; 
+  }
+  .member-item h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  .member-item p {
+    font-size: 16px;
+    color: #666666;
+    margin-bottom: 10px;
+  }
+  .member-item .buttonmore {
+    display: flex;
+    background-color: #072ef1;
+    border-radius: 8px;
+    padding: 0;
+    margin: 0;
+    justify-content: center;
+    text-align: center;
+  }
+  
+  .buttonmore a{
+    position: relative;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;   
+  }
+
+  .buttonmore:hover{
+    scale: 1.2;  
+  }

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>230-CV</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="StyleCSS.css">
+</head>
+<body>
+    <header>
+        <h1>Oh My CV </h1>
+        <p>( Wahyu Nisfu Melati's CV )</p>
+    </header>
+    <nav>
+        <a href="#beranda">beranda</a>
+        <a href="#profile">profile</a>
+        <a href="#tentang saya">tentang saya</a>
+        <a href="#kontak">kontak</a>
+    </nav>
+
+    <img src="melCV1.png" alt="melCV1.png" style="width: 100%;">
+
+    <section id="beranda">
+        <h2>Beranda</h2>
+        <p>Halo, saya Mela!
+        <br> saya lahir di Gresik 10 Oktober 2003. saya seorang mahasiswa semester 4 sistem informasi 
+        di universitas pembangunan nasional “Veteran” Jawa Timur yang mempunyai ketertarikan 
+        dalam bidang UI/UX Desain. <br>
+    </p>
+    </section>
+    <section id="profile">
+        <h2>Profile</h2>
+        <p><li>Nama: Wahyu Nisfu Melati Sukma</li>
+            <li>Alamat: Menganti-Gresik</li>
+            <li>Telepon: 085745583988</li>
+            <li>Email: mellaao32@gmail.com</li>
+        </p>
+        <hr>
+        <p>Pendidikan:
+            <br><ul>
+            <span>MI Riyadlatul Athfal (2010-2016) </span> <br> 
+            <span>SMP Negeri 2 Menganti (2016-2019)</span> <br>
+            <span>SMA Negeri 1 Menganti (2019-2022)</span> <br>
+            <span>UPN "Veteran"Jawa Timur (2022- Sekarang) </span> <br></ul>
+        </p>
+    </section>
+    <section id="tentang saya">
+        <h2>Tentang Saya</h2>
+        <p>Pengalaman:
+            <ul>1. menjadi panitia Hulaan Fest
+            <br>2. menjadi panitia pelas outbound
+            <br>3. menjadi panitia F Trip</ul>
+        </p>
+        <hr>
+        <p>Keahlian:
+            <ul> Kepemimpinan
+            <br> Kerjasama Tim
+            <br> Berbahasa Inggris</ul>
+        </p>
+        <hr>
+        <p>Proyek:
+            <ul>Proyek Logika Algoritma (Game)
+            <br>Proyek Bahasa Pemograman 1 (Kasir)
+            <br>Proyek Bahasa Pemograman 2 (Kasir)
+            <br>Proyek Pemograman Dekstop (Toko Alat Tulis)
+            <br>proyek Interaksi Manusia Komputer (EduHub)
+            <br>proyek Analisis Desain Sistem Informasi (E-canteen)</ul>
+        </p>
+        <hr>
+        <p>Hobi:
+            <ul>Menyanyi
+            <br>Memasak
+            <br>Menonton Film
+            <br>Belanja</ul>
+        </p>
+    </section>
+    <section id="kontak">
+        <h2>Kontak</h2>
+        <ul><img src="instagram.png" alt="Instagram" class="instagram-icon">
+        <span>@mellaao</span> <br>
+        <img src="email.png" alt="email" class="email-icon"> 
+        <span>mellaao32@gmail.com</span> <br>
+        <img src="whatsapp.png" alt="whatsapp" class="whatsapp-icon"> 
+        <span>085745583988</span> <br>
+        <img src="twitter.png" alt="twitter" class="twitter-icon"> 
+        <span>@oxiyjen </span> </ul>
+    </section>
+    <section></section>
+    <footer>
+        <p>Copyright &copy; 2024 Oh My CV</p>
+    </footer>
+
+    
+    <script>
+        let slideIndex = 1;
+        showSlides(slideIndex);
+
+        function plusSlides(n) {
+          showSlides(slideIndex += n);
+        }
+
+        function currentSlide(n) {
+          showSlides(slideIndex = n);
+        }
+
+        function showSlides(n) {
+          let i;
+          let slides = document.getElementsByClassName("mySlides");
+          let dots = document.getElementsByClassName("dot");
+          if (n > slides.length) {slideIndex = 1}
+          if (n < 1) {slideIndex = slides.length}
+          for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+          }
+          for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+          }
+          slides[slideIndex-1].style.display = "block";
+          dots[slideIndex-1].className += " active";
+        }
+    </script>
+</body>
+</html>
