@@ -5,6 +5,8 @@ let scrollCounter, cameraY, current, mode, xSpeed;
 let ySpeed = 5;
 let height = 50;
 let boxes = [];
+let initialXSpeed = 2;
+let speedDecrement = 0.1; 
 
 // Atur kotak pertama berada di tengah
 let initialBoxWidth = 200;
@@ -19,9 +21,7 @@ let debris = {
   width: 0
 };
 
-// Tambahkan variabel untuk mengontrol kecepatan kotak
-let initialXSpeed = 2;
-let speedDecrement = 0.1; // Penurunan kecepatan setiap kali poin bertambah
+
 
 function newBox() {
   boxes[current] = {
@@ -64,7 +64,7 @@ function animate() {
       // Panggil fungsi untuk menggambar gambar selanjutnya dengan parameter box
       drawNextImage(box);
     }
-    context.fillStyle = '#f2d89b';
+    context.fillStyle = '#296928';
     context.fillRect(debris.x, 600 - debris.y + cameraY, debris.width, height);
     if (mode == 'bounce') {
       boxes[current].x = boxes[current].x + xSpeed;
@@ -93,7 +93,7 @@ function animate() {
           boxes[current].width = boxes[current].width + difference;
           boxes[current].x = boxes[current - 1].x;
         }
-        // Kurangi kecepatan setiap kali poin bertambah
+        // Tambahkan kecepatan setiap kali poin bertambah
         xSpeed -= speedDecrement;
         current++;
         scrollCounter = height;
@@ -144,10 +144,13 @@ restart();
 animate();
 
 function startGame() {
-    document.getElementById("splashScreen").style.display = "none";
-    document.getElementById("gameContainer").style.display = "block";
-    restart();
-    animate();
+  document.getElementById("splashScreen").style.display = "none";
+  document.getElementById("gameContainer").style.display = "block";
+  restart();
+  animate();
+
+  // Hapus high scores dari penyimpanan lokal saat memulai permainan
+  localStorage.removeItem('highScores');
 }
 
 // Initialize high scores array
@@ -197,5 +200,3 @@ function updateAndDisplayHighScores(score) {
   saveHighScores();
 }
 
-// Call loadHighScores when the script starts to load any existing high scores
-loadHighScores();
